@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>TaskFlow</h1>
+    <p>Manage your tasks in one place.</p>
+    <!-- Task Summary Dashboard -->
+<div class="dashboard">
+
+    <div class="summary-card">
+        <h3>Total Tasks</h3>
+        <p>{{ total_tasks }}</p>
+    </div>
+
+    <div class="summary-card">
+        <h3>Pending Tasks</h3>
+        <p>{{ pending_tasks }}</p>
+    </div>
+
+    <div class="summary-card">
+        <h3>Completed Tasks</h3>
+        <p>{{ completed_tasks }}</p>
+    </div>
+
+</div>
+
+    <!-- Form to add a new task -->
+    <h2>My Tasks ({{ tasks|length }})</h2>
+
+    <form action="/add" method="POST">
+
+        <label for="title">Task Title:</label>
+        <input type="text" id="title" name="title" maxlength="100" placeholder="Enter task title" required>
+
+        <br><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" maxlength="500" placeholder="Describe your task (optional)">
+
+        <br><br>
+
+        <label for="priority">Priority:</label>
+
+        <select id="priority" name="priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Add Task</button>
+
+    </form>
+
+    <!-- Display existing tasks -->
+    <h2>My Tasks</h2>
+{% if not tasks %}
+    <p class="empty-message">No tasks yet. Add your first task above!</p>
+{% endif %}
+
+    {% for task in tasks %}
+
+        <div class="task-card {% if task[4] == 'Completed' %}completed-task{% endif %}">
+
+            <h3>{{ task[1] }}</h3>
+
+            <p>Description: {{ task[2] }}</p>
+
+            <p>Priority: <span class="{% if task[3] == 'High' %}priority-high{% elif task[3] == 'Medium' %}priority-medium{% else %}priority-low{% endif %}">{{ task[3] }}</span></p>
+
+            <p>Status: <span class="{% if task[4] == 'Completed' %}status-completed{% else %}status-pending{% endif %}">{{ task[4] }}</span></p>
+
+            <!-- Show completion button only for unfinished tasks -->
+            {% if task[4] != 'Completed' %}
+
+                <form action="/complete/{{ task[0] }}" method="POST">
+                    <button type="submit">Mark as Completed</button>
+                </form>
+
+            {% endif %}
+
+            <!-- Delete task -->
+            <form
+                action="/delete/{{ task[0] }}"
+                method="POST"
+                onsubmit="return confirm('Are you sure you want to delete this task?');"
+            >
+                <button type="submit" class="delete-btn">Delete Task</button>
+            </form>
+
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>

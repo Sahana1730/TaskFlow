@@ -1,0 +1,311 @@
+/* ========================================
+   TASKFLOW - BABY PINK & NAVY THEME
+   ======================================== */
+
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #ffeaf2;
+    margin: 0;
+    padding: 40px;
+    color: #111827;
+    line-height: 1.6;
+}
+
+/* Main TaskFlow heading */
+h1 {
+    color: #111827;
+    font-size: 42px;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+/* Introductory paragraph */
+body > p {
+    color: #26344d;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Section headings */
+h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #14213d;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* ========================================
+   DASHBOARD
+   ======================================== */
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+/* Dashboard cards */
+.summary-card {
+    background: #14213d;
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid #263858;
+    box-shadow: 0 6px 18px rgba(20, 33, 61, 0.12);
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Dashboard labels */
+.summary-card h3 {
+    font-size: 14px;
+    color: #fbcfe8;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+/* Dashboard numbers */
+.summary-card p {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Dashboard hover effect */
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(20, 33, 61, 0.22);
+}
+
+/* ========================================
+   TASK CARDS
+   ======================================== */
+
+.task-card {
+    background: #ffffff;
+    padding: 24px;
+    margin-top: 20px;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(20, 33, 61, 0.08);
+    max-width: 650px;
+    border: 1px solid #f5bfd4;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Task card hover effect */
+.task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(20, 33, 61, 0.15);
+}
+
+/* Task titles */
+.task-card h3 {
+    color: #111827;
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+/* Task descriptions and details */
+.task-card p {
+    color: #26344d;
+    font-size: 15px;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+/* Completed task cards */
+.completed-task {
+    background: #f8fafc;
+    opacity: 0.85;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+button {
+    background: #14213d;
+    color: #ffffff;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(20, 33, 61, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* General button hover */
+button:hover {
+    background: #263858;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(20, 33, 61, 0.22);
+}
+
+/* Delete button */
+.delete-btn {
+    background: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.18);
+}
+
+/* Delete button hover */
+.delete-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(220, 38, 38, 0.28);
+}
+
+/* ========================================
+   INPUT FIELDS
+   ======================================== */
+
+input,
+select {
+    box-sizing: border-box;
+    min-width: 220px;
+    max-width: 100%;
+    padding: 12px 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #e9a8c2;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input focus effect */
+input:focus,
+select:focus {
+    border-color: #14213d;
+    box-shadow: 0 0 0 4px rgba(20, 33, 61, 0.12);
+}
+
+/* ========================================
+   PRIORITY BADGES
+   ======================================== */
+
+.priority-high {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.priority-medium {
+    color: #92400e;
+    background-color: #fef3c7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.priority-low {
+    color: #166534;
+    background-color: #dcfce7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ========================================
+   STATUS BADGES
+   ======================================== */
+
+.status-completed {
+    color: #166534;
+    background-color: #dcfce7;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-pending {
+    color: #92400e;
+    background-color: #fef3c7;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ========================================
+   EMPTY TASK MESSAGE
+   ======================================== */
+
+.empty-message {
+    color: #26344d;
+    font-size: 15px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px dashed #e9a8c2;
+    border-radius: 10px;
+    max-width: 610px;
+}
+
+/* Horizontal separator */
+hr {
+    border: none;
+    border-top: 1px solid #f5bfd4;
+    margin: 20px 0;
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .summary-card {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: none;
+    }
+
+    .task-card {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    input,
+    select {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}

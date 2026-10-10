@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Task - TaskFlow</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>TaskFlow</h1>
+
+    <div class="task-card">
+        <h2>Duplicate Task Warning</h2>
+
+        <p>
+            A task named <strong>{{ title }}</strong> already exists.
+        </p>
+
+        <p>Would you like to add another task with the same title?</p>
+
+        <form action="/add-duplicate" method="POST">
+            <input type="hidden" name="title" value="{{ title }}">
+            <input type="hidden" name="description" value="{{ description }}">
+            <input type="hidden" name="priority" value="{{ priority }}">
+
+            <button type="submit">Add Anyway</button>
+        </form>
+
+        <br>
+
+        <form action="/" method="GET">
+            <button type="submit">Cancel</button>
+        </form>
+    </div>
+
+</body>
+</html>
