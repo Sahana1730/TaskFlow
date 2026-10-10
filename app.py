@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Connect to the MySQL database
 def get_db_connection():
     connection = mysql.connector.connect(
-        host="localhost",
+        host="host.docker.internal",
         user="root",
         password=os.environ.get("DB_PASSWORD"),
         database="taskflow"
@@ -188,6 +188,5 @@ def delete_task(task_id):
 
     return redirect("/")
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=False)
